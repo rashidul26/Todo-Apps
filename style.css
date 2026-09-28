@@ -1,0 +1,176 @@
+/* 💡 Google Font ইমপোর্ট লিঙ্কটি ফিক্স করা হয়েছে */
+@import url('https://googleapis.com');
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background-image: url('bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    margin: 0;
+    overflow: hidden; 
+}
+
+.todo-container {
+    background: #eff0cba9; 
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    width: 350px;
+    min-height: 450px; 
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #9315e1ec;
+    margin-top: 0;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-bottom: 8px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(to right, #9315e1ec, #007bff);
+    border-radius: 2px;
+}
+
+.input-section {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.clear-all {
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px; 
+    margin-bottom: 15px;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+.clear-all:hover {
+    background-color: #c82333;
+}
+
+#todo-input {
+    font-family: 'Poppins', sans-serif;
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    transition: border 0.2s ease;
+}
+
+#todo-input:focus {
+    border-color: #007bff;
+}
+
+#add-btn {
+    padding: 10px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.2s ease;
+}
+
+#add-btn:hover {
+    background-color: #218838;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 260px;  
+    overflow-y: auto;  
+    padding-right: 5px;
+    flex: 1; 
+}
+
+@keyframes slideUpAndPush {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+li {
+    background: #f9f9f9b9;
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-left: 5px solid #007bff;
+    gap: 15px; /* 💡 টেক্সট এবং ডিলিট বাটনের মাঝে গ্যাপ রাখার জন্য */
+    
+    animation: slideUpAndPush 0.3s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+/* 💡 নতুন কোড: বড় টেক্সট কন্টেইনারের ভেতরে রাখার মূল ম্যাজিক এখানে */
+li span {
+    flex: 1; /* টেক্সট যতটুকু জায়গা ফাঁকা পাবে সবটুকু নিয়ে নেবে */
+    white-space: normal; /* টেক্সটকে সোজা এক লাইনে যেতে বাধা দেবে */
+    word-break: break-word; /* অনেক বড় একটা শব্দ হলেও তা ভেঙে নিচের লাইনে আনবে */
+    overflow-wrap: break-word;
+    font-size: 15px;
+    line-height: 1.4;
+}
+
+/* 💡 নতুন কোড: টেক্সট বড় হলে ডিলিট বাটন যাতে ছোট বা চ্যাপ্টা না হয়ে যায় */
+.delete-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+    flex-shrink: 0; /* বাটনকে চ্যাপ্টা হতে দেবে না */
+    transition: background 0.2s ease;
+}
+
+.delete-btn:hover {
+    background: #c82333;
+}
+
+ul::-webkit-scrollbar {
+    width: 5px;
+}
+ul::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
