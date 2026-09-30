@@ -16,7 +16,7 @@ function createTodo() {
 
     li.innerHTML = `
         <span>${taskText}</span>
-        <button class="delete-btn">বাদ দিন</button>
+        <button class="delete-btn">Delete</button>
     `;
 
     li.querySelector('.delete-btn').addEventListener('click', () => {
